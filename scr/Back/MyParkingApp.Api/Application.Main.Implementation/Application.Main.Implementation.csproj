@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Application.Main.Definition\Application.Main.Definition.csproj" />
+    <ProjectReference Include="..\Core.GlobalRepository\Core.GlobalRepository.csproj" />
   </ItemGroup>
 
 </Project>
