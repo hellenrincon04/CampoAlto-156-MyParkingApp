@@ -12,7 +12,7 @@ namespace Data.Common.Definition
         int CommitInt();
         void RollbackChanges();
         void AttachEntity<T>(T item) where T : class;
-        void AdddEntity<T>(T item) where T : class;
+        void AddEntity<T>(T item) where T : class;
         void RemoveEntity<T>(T item) where T : class;
 
         int ExecuteQuery(string query, List<ParameterDto> parameters, bool procedure);

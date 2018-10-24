@@ -1,8 +1,12 @@
 ﻿
 
+using Core.Entities;
+using Data.Common.Definition;
+
 namespace Core.GlobalRepository
 {
-    public class Class1
+    public partial interface IUserRepository : IRepository<User>
     {
+
     }
 }
