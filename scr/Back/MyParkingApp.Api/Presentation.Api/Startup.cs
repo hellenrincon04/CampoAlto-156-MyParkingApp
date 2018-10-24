@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Application.Main.Definition;
+using Application.Main.Implementation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -40,6 +42,8 @@ namespace Presentation.Api
             {
                 c.SwaggerDoc("v1", new Info { Title = "My Parking API", Version = "v1" });
             });
+
+            services.AddScoped<IUserAppService, UserAppService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
