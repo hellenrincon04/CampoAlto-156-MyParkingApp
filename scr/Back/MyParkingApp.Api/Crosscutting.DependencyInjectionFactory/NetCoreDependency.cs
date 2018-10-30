@@ -54,7 +54,6 @@ namespace Crosscutting.DependencyInjectionFactory
             }
 
             //Repositories
-           
             services.AddScoped<IUserRepository, UserRepository>();
 
             //services
