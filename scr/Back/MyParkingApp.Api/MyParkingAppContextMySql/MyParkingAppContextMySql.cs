@@ -1,4 +1,5 @@
-﻿using Core.Entities;
+﻿using System.Configuration;
+using Core.Entities;
 using Data.Common.Implementation;
 using DataAccess.Repository;
 using Microsoft.EntityFrameworkCore;
@@ -19,7 +20,7 @@ namespace DataAccess.MySql
         {
             if (!optionsBuilder.IsConfigured)
             {
-                //optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["ProjectManagerString"].ConnectionString);
+                optionsBuilder.UseMySql(ConfigurationManager.ConnectionStrings["MyParkingAppMySql"].ConnectionString);
             }
 
         }

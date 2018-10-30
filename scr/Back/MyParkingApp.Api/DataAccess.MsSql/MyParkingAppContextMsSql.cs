@@ -1,4 +1,5 @@
-﻿using Core.Entities;
+﻿using System.Configuration;
+using Core.Entities;
 using Data.Common.Implementation;
 using DataAccess.Repository;
 using Microsoft.EntityFrameworkCore;
@@ -18,7 +19,7 @@ namespace DataAccess.MsSql
         {
             if (!optionsBuilder.IsConfigured)
             {
-                //optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["ProjectManagerString"].ConnectionString);
+                optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["MyParkingAppMsSql"].ConnectionString);
             }
 
         }
