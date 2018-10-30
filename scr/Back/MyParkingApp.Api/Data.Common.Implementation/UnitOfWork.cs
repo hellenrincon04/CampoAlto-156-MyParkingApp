@@ -11,6 +11,10 @@ namespace Data.Common.Implementation
 {
     public class UnitOfWork : DbContext, IUnitOfWork
     {
+        public UnitOfWork(DbContextOptions options) : base(options)
+        {
+
+        }
         public int CommitInt()
         {
             return SaveChanges();

@@ -16,9 +16,9 @@ namespace Presentation.Api.Controllers.Api
 
         private readonly IUserAppService _userAppService;
 
-        public UserController()
+        public UserController(IUserAppService userAppService)
         {
-            _userAppService = Factory.Resolve<IUserAppService>();
+            _userAppService = userAppService;
         }
 
         // GET: api/User

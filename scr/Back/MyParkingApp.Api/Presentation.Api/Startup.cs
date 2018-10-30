@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Application.Main.Definition;
+﻿using Application.Main.Definition;
 using Application.Main.Implementation;
+using Core.Entities.Common;
+using Crosscutting.DependencyInjectionFactory;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,12 +14,15 @@ namespace Presentation.Api
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public IHostingEnvironment HostingEnvironment { get; private set; }
+        public IConfiguration Configuration { get; private set; }
+
+        public Startup(IConfiguration configuration, IHostingEnvironment env)
         {
+            HostingEnvironment = env;
             Configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -37,13 +37,15 @@ namespace Presentation.Api
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
+
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Info { Title = "My Parking API", Version = "v1" });
             });
 
-            services.AddScoped<IUserAppService, UserAppService>();
+            services.InitializeContainer(Configuration);
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

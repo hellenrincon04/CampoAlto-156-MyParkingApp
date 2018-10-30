@@ -1,5 +1,6 @@
 ﻿using System.Configuration;
 using Core.Entities;
+using Core.Entities.Common;
 using Data.Common.Implementation;
 using DataAccess.Repository;
 using Microsoft.EntityFrameworkCore;
@@ -8,18 +9,19 @@ namespace DataAccess.MsSql
 {
     public class MyParkingAppContextMsSql : UnitOfWork, IProjectManagerContext
     {
-        public MyParkingAppContextMsSql()
-        {
 
+        public MyParkingAppContextMsSql(DbContextOptions options) : base(options)
+        {
             //Database.EnsureCreated();
             //Database.EnsureCreated();
             //Database.Migrate();
         }
+      
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["MyParkingAppMsSql"].ConnectionString);
+             
             }
 
         }
@@ -29,17 +31,7 @@ namespace DataAccess.MsSql
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //modelBuilder.Entity<User>(entity =>
-            //{
-            //    entity.Property(e => e.UserId).IsRequired();
-            //});
-
-            //modelBuilder.Entity<Post>(entity =>
-            //{
-            //    entity.HasOne(d => d.Blog)
-            //        .WithMany(p => p.Post)
-            //        .HasForeignKey(d => d.BlogId);
-            //});
+           
         }
     }
 }
