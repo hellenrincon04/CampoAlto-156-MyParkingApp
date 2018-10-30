@@ -20,6 +20,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.Core", "3.Core", "{98FC600E-E900-49FE-8E87-CAEB6D0D0B8F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dtos", "Dtos", "{E9D37E93-EE5E-4951-B707-C22C92DFE00B}"
+	ProjectSection(SolutionItems) = preProject
+		Application.Main.Implementation\UserAppService.cs = Application.Main.Implementation\UserAppService.cs
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Entities", "Entities", "{6710467E-38AA-466A-B5C8-B1FF3DF9F194}"
 EndProject

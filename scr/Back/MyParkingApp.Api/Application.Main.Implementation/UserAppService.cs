@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Application.Main.Definition;
 using Core.DataTransferObject;
 using Core.Entities;
@@ -31,6 +32,28 @@ namespace Application.Main.Implementation
 
             return response;
 
+        }
+
+        public BaseApiResponse GetUserById(int id)
+        {
+            var response = new BaseApiResponse();
+            try
+            {
+                var user = _userRepository.GetFiltered(s => s.Id == id).FirstOrDefault();
+                if (user != null)
+                {
+                    response.Data = user;
+                }
+                return response;
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                response.Message = e.InnerException != null ? e.InnerException.Message : e.Message;
+            }
+
+            return response;
         }
     }
 }

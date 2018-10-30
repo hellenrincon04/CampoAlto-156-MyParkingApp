@@ -8,5 +8,6 @@ namespace Application.Main.Definition
     {
         BaseApiResponse RegisterUser(User data);
 
+        BaseApiResponse GetUserById(int id);
     }
 }

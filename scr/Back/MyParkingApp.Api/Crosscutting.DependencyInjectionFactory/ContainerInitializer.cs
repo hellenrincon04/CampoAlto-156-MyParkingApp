@@ -39,4 +39,26 @@ namespace Crosscutting.DependencyInjectionFactory
 
         }
     }
+
+    public class DiContainer
+    {
+        public DiContainer()
+        {
+            Current = new UnityContainer();
+            Current.InitializeContainer();
+        }
+
+        public IUnityContainer Current { get; set; }
+    }
+
+    public static class Factory
+    {
+        private static readonly DiContainer Container = new DiContainer();
+
+        public static TService Resolve<TService>()
+        {
+            return Container.Current.Resolve<TService>();
+        }
+    }
+
 }
