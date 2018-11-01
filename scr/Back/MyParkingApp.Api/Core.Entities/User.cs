@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Core.Entities
+﻿namespace Core.Entities
 {
     public class User
     {
-        public long Id { get; set; }
+        public int Id { get; set; }
+        public string Email { get; set; }
     }
 }

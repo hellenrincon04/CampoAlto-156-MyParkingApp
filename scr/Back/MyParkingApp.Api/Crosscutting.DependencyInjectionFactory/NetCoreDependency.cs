@@ -32,7 +32,7 @@ namespace Crosscutting.DependencyInjectionFactory
                     assemblyNamespace = typeof(MyParkingAppContextMySql).Namespace;
 
                     services.AddDbContext<MyParkingAppContextMySql>(options =>
-                        options.UseSqlServer(connectionString, optionsBuilder =>
+                        options.UseMySQL(connectionString, optionsBuilder =>
                             optionsBuilder.MigrationsAssembly(assemblyNamespace)
                         )
                     );
