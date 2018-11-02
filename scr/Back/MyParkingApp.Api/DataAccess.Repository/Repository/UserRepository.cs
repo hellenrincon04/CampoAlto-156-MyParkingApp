@@ -11,4 +11,11 @@ namespace DataAccess.Repository.Repository
         {
         }
     }
+
+    public partial class RoleUserRepository : Repository<RoleUser>, IRoleUserRepository
+    {
+        public RoleUserRepository(IUnitOfWork unitOfWork) : base(unitOfWork)
+        {
+        }
+    }
 }

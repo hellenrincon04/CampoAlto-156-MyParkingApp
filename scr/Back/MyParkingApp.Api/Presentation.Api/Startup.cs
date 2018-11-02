@@ -1,7 +1,4 @@
-﻿using Application.Main.Definition;
-using Application.Main.Implementation;
-using Core.Entities.Common;
-using Crosscutting.DependencyInjectionFactory;
+﻿using Crosscutting.DependencyInjectionFactory;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;

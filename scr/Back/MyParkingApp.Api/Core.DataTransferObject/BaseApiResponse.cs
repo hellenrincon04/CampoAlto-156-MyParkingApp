@@ -1,4 +1,5 @@
 ﻿using System;
+using Core.Entities;
 
 namespace Core.DataTransferObject
 {
@@ -7,5 +8,7 @@ namespace Core.DataTransferObject
         public bool ActionCompleted { get; set; }
         public string Message { get; set; }
         public virtual object Data { get; set; }
+        public HttpCodeType HttpCodeType { get; set; }
+
     }
 }
